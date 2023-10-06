@@ -2,6 +2,7 @@ package hello.core.order;
 
 import hello.core.discount.DiscountPolicy;
 import hello.core.discount.FixDiscountPolicy;
+import hello.core.discount.RateDiscountPolicy;
 import hello.core.member.Member;
 import hello.core.member.MemberRepository;
 import hello.core.member.MemoryMemberRepository;
@@ -11,7 +12,11 @@ public class OrderServiceImpl implements OrderService {
     // 회원 정보 조회
     private final MemberRepository memberRepository = new MemoryMemberRepository();
     // 할인 정보 조회
-    private final DiscountPolicy discountPolicy = new FixDiscountPolicy();
+
+    // 할인 정책이 바뀌며 FixDiscountPolicy -> RateDiscountPolicy로 변경이 필요해짐
+        // 할인 정책을 변경하려면 클라이언트인 OrderServiceImpl 코드를 고쳐야 한다.
+//    private final DiscountPolicy discountPolicy = new FixDiscountPolicy();
+    private final DiscountPolicy discountPolicy = new RateDiscountPolicy();
 
 
     @Override
