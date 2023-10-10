@@ -10,6 +10,8 @@ import hello.core.member.MemoryMemberRepository;
 public class OrderServiceImpl implements OrderService {
 
     // 회원 정보 조회
+
+    // 인터페이스 : 구현부는 설계부(추상적인)만 의존하고 있음
     private final MemberRepository memberRepository;
     private final DiscountPolicy discountPolicy;
 
